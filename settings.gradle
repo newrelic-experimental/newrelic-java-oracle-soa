@@ -1,1 +1,7 @@
 rootProject.name = 'java-instrumentation-template'
+include 'oracle-cloud-runtime'
+include 'weblogic-connector'
+include 'oracle-as-scheduler'
+include 'oracle-webservices-disi'
+include 'oracle-fmw-wsserver'
+include 'fabric-runtime'
