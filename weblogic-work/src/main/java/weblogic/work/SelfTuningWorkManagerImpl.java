@@ -48,6 +48,7 @@ public abstract class SelfTuningWorkManagerImpl extends WorkManagerImpl {
 				token.linkAndExpire();
 				token = null;
 			}
+			Weaver.callOriginal();
 		}
 
 		@SuppressWarnings("unused")
