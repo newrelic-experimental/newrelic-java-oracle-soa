@@ -1,13 +1,11 @@
 
-// Build.gradle generated for instrumentation module oracle-webservices-disi
+// Build.gradle generated for instrumentation module soa-jmsadapter
 
 apply plugin: 'java'
 
 dependencies {
-   // Declare a dependency on each JAR you want to instrument
-   // Example:
-   // implementation 'javax.servlet:servlet-api:2.5'
-
+   implementation 'javax:javaee-api:6.0'
+   
    // New Relic Java Agent dependencies
    implementation fileTree(include: ['*.jar'], dir: '../libs')
    implementation fileTree(include: ['*.jar'], dir: 'lib')
@@ -16,7 +14,7 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.oracle-webservices-disi'
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.soa-jmsadapter'
     attributes 'Implementation-Vendor': 'New Relic Labs'
     attributes 'Implementation-Vendor-Id': 'com.newrelic.labs'
     attributes 'Implementation-Version': 1.0

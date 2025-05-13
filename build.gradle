@@ -22,7 +22,7 @@ plugins {
 
 project.ext {
   group = 'com.newrelic.instrumentation.labs'
-  javaAgentVersion = '6.4.0'
+  javaAgentVersion = '8.4.0'
 
   // Aligned with minimum Java major version supported by latest Java Agent
   javaVersion = JavaVersion.VERSION_1_8
@@ -120,8 +120,6 @@ task createModule {
            // implementation 'javax.servlet:servlet-api:2.5'
 
            // New Relic Java Agent dependencies
-           implementation 'com.newrelic.agent.java:newrelic-agent:JAVA_AGENT_VERSION'
-           implementation 'com.newrelic.agent.java:newrelic-api:JAVA_AGENT_VERSION'
            implementation fileTree(include: ['*.jar'], dir: '../libs')
            implementation fileTree(include: ['*.jar'], dir: 'lib')
            implementation fileTree(include: ['*.jar'], dir: '../test-lib')

@@ -1,5 +1,5 @@
 
-// Build.gradle generated for instrumentation module oracle-webservices-disi
+// Build.gradle generated for instrumentation module soa-ess
 
 apply plugin: 'java'
 
@@ -16,7 +16,7 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.oracle-webservices-disi'
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.soa-ess'
     attributes 'Implementation-Vendor': 'New Relic Labs'
     attributes 'Implementation-Vendor-Id': 'com.newrelic.labs'
     attributes 'Implementation-Version': 1.0

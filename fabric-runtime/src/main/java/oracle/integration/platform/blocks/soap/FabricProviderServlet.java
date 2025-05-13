@@ -11,6 +11,8 @@ import com.newrelic.api.agent.weaver.Weaver;
 import com.newrelic.instrumentation.labs.fabric.runtime.FabricPathInfo;
 import com.newrelic.instrumentation.labs.fabric.runtime.FabricRuntimeUtils;
 
+import oracle.fabric.composite.model.CompositeModel;
+
 @Weave
 public abstract class FabricProviderServlet {
 	
@@ -32,5 +34,16 @@ public abstract class FabricProviderServlet {
 			}
 		}
 		Weaver.callOriginal();
+	}
+	
+	@Weave
+	public static class HttpServletRequestAdapter {
+		
+		public HttpServletRequestAdapter(HttpServletRequest request, CompositeModel composite, String[] path,
+				String serviceName, boolean pathInfoUpdated) {
+			if(serviceName != null && !serviceName.isEmpty()) {
+				NewRelic.getAgent().getTransaction().setTransactionName(TransactionNamePriority.FRAMEWORK_HIGH, false, "Fabric-Get", "FabricServlet","Get",serviceName);
+			}
+		}
 	}
 }
