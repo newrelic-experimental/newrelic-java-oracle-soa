@@ -5,7 +5,10 @@ import java.util.Map;
 import javax.xml.namespace.QName;
 
 import oracle.j2ee.ws.common.ProcessorContext;
+import oracle.j2ee.ws.server.deployment.WebServiceEndpoint;
+import oracle.j2ee.ws.server.jaxws.IncomingRequestData;
 import oracle.webservices.WebServiceEndpointInfo;
+import oracle.webservices.management.PortId;
 
 public class FMWServerUtils {
 
@@ -33,12 +36,41 @@ public class FMWServerUtils {
 
 		}
 	}
+
+	public static void addIncomingRequestData(Map<String,Object> attributes, IncomingRequestData data) {
+		if(data != null) {
+			addAttribute(attributes, "IncomingRequestData-RequestURI", data.getRequestURI());
+			addAttribute(attributes, "IncomingRequestData-ServiceName", data.getServiceName());
+			addAttribute(attributes, "IncomingRequestData-RequestURI", data.getTenantName());
+		}
+
+	}
 	
 	public static void addProcessorContext(Map<String,Object> attributes, ProcessorContext context) {
 		if(context != null) {
 			addAttribute(attributes, "ProcessorContext-EndpointURL", context.getEndpointURL());
 			addAttribute(attributes, "ProcessorContext-RequestURI", context.getRequestURI());
 			addAttribute(attributes, "ProcessorContext-URLPattern", context.getURLPattern());
+		}
+	}
+
+	public static void addWebServiceEndpoint(Map<String,Object> attributes, WebServiceEndpoint endpoint) {
+		if(endpoint != null) {
+			addAttribute(attributes, "WebServiceEndpoint-EndpointName", endpoint.getEndpointName());
+			addAttribute(attributes, "WebServiceEndpoint-EndpointAddressURI", endpoint.getEndpointAddressURI());
+			addAttribute(attributes, "WebServiceEndpoint-EndpointName", endpoint.getEndpointName());
+			addAttribute(attributes, "WebServiceEndpoint-EndpointName", endpoint.getPortName());
+			addAttribute(attributes, "WebServiceEndpoint-ServiceName", endpoint.getServiceName());
+			addAttribute(attributes, "WebServiceEndpoint-WebServiceName", endpoint.getWebServiceName());
+		}
+	}
+
+	public static void addPortId(Map<String,Object> attributes, PortId portId) {
+		if(portId != null) {
+			addAttribute(attributes,"WebServiceEndpoint-PortName", portId.getPortName());
+			addAttribute(attributes,"WebServiceEndpoint-ServiceName", portId.getServiceName());
+			addAttribute(attributes,"WebServiceEndpoint-AppName", portId.getAppName());
+			addAttribute(attributes,"WebServiceEndpoint-ModuleName", portId.getModuleName());
 		}
 	}
 }
