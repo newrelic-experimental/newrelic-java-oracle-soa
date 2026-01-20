@@ -4,17 +4,16 @@
 apply plugin: 'java'
 
 dependencies {
-   // Declare a dependency on each JAR you want to instrument
-   // Example:
-   implementation 'javax.servlet:servlet-api:2.5'
-   compileOnly group: 'javax', name: 'javaee-api', version: '6.0'
-   // https://mvnrepository.com/artifact/com.sun.jersey/jersey-client
-   implementation group: 'com.sun.jersey', name: 'jersey-client', version: '1.19.4'
+    implementation 'javax.servlet:servlet-api:2.5'
+    compileOnly group: 'javax', name: 'javaee-api', version: '6.0'
+    implementation group: 'com.sun.jersey', name: 'jersey-client', version: '1.19.4'
    
-   // New Relic Java Agent dependencies
-   implementation fileTree(include: ['*.jar'], dir: '../libs')
-   implementation fileTree(include: ['*.jar'], dir: 'lib')
-   implementation fileTree(include: ['*.jar'], dir: '../test-lib')
+    // New Relic Java Agent dependencies
+    implementation 'com.newrelic.agent.java:newrelic-agent:8.4.0'
+    implementation 'com.newrelic.agent.java:newrelic-api:8.4.0'
+    implementation 'com.newrelic.agent.java:agent-bridge:8.4.0'
+    implementation fileTree(include: ['*.jar'], dir: 'lib')
+    implementation fileTree(include: ['*.jar'], dir: '../test-lib')
 }
 
 jar {

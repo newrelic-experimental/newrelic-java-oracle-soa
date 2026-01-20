@@ -1,20 +1,24 @@
 
-// Build.gradle generated for instrumentation module oracle-fmw-wsserver
+// Build.gradle generated for instrumentation module orabpel
 
 apply plugin: 'java'
 
 dependencies {
+   // Declare a dependency on each JAR you want to instrument
+   // Example:
+   // implementation 'javax.servlet:servlet-api:2.5'
+
    // New Relic Java Agent dependencies
-    implementation 'com.newrelic.agent.java:newrelic-agent:8.4.0'
-    implementation 'com.newrelic.agent.java:newrelic-api:8.4.0'
-    implementation 'com.newrelic.agent.java:agent-bridge:8.4.0'
+    implementation 'com.newrelic.agent.java:newrelic-agent:8.20.0'
+    implementation 'com.newrelic.agent.java:newrelic-api:8.20.0'
+    implementation 'com.newrelic.agent.java:agent-bridge:8.20.0'
     implementation fileTree(include: ['*.jar'], dir: 'lib')
     implementation fileTree(include: ['*.jar'], dir: '../test-lib')
 }
 
 jar {
   manifest {
-    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.oracle-fmw-wsserver'
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.orabpel'
     attributes 'Implementation-Vendor': 'New Relic Labs'
     attributes 'Implementation-Vendor-Id': 'com.newrelic.labs'
     attributes 'Implementation-Version': 1.0

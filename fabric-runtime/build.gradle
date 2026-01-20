@@ -4,13 +4,15 @@
 apply plugin: 'java'
 
 dependencies {
-   implementation 'javax.servlet:servlet-api:2.5'
-   compileOnly group: 'javax', name: 'javaee-api', version: '6.0'
+    implementation 'javax.servlet:servlet-api:2.5'
+    compileOnly group: 'javax', name: 'javaee-api', version: '6.0'
 
    // New Relic Java Agent dependencies
-   implementation fileTree(include: ['*.jar'], dir: '../libs')
-   implementation fileTree(include: ['*.jar'], dir: 'lib')
-   implementation fileTree(include: ['*.jar'], dir: '../test-lib')
+    implementation 'com.newrelic.agent.java:newrelic-agent:8.4.0'
+    implementation 'com.newrelic.agent.java:newrelic-api:8.4.0'
+    implementation 'com.newrelic.agent.java:agent-bridge:8.4.0'
+    implementation fileTree(include: ['*.jar'], dir: 'lib')
+    implementation fileTree(include: ['*.jar'], dir: '../test-lib')
 }
 
 jar {
